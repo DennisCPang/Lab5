@@ -29,6 +29,16 @@ public class Bank {
         /*
          * Implement this function
          */
+        if(amount < 0){
+            return false;
+        }
+      double num = bankAccount.getBalance();
+      num = num - amount;
+      if (num < 0) {
+          return false;
+      }
+        bankAccount.setBalance(num);
+      return true;
     }
 
     /**
@@ -45,6 +55,13 @@ public class Bank {
         /*
          * Implement this function
          */
+        if(amount< 0){
+            return false;
+        }
+        double num = bankAccount.getBalance();
+        num = num + amount;
+        bankAccount.setBalance(num);
+        return true;
     }
 
     /**
@@ -64,6 +81,17 @@ public class Bank {
         /*
          * Implement this function
          */
+        if(amount< 0){
+            return false;
+        }
+        if (source.getBalance() < amount){
+            return false;
+        }
+        double num = amount + destination.getBalance();
+        double num2 = source.getBalance() - amount;
+        source.setBalance(num2);
+        destination.setBalance(num);
+        return true;
     }
 
     /**
@@ -77,6 +105,7 @@ public class Bank {
         /*
          * Implement this function
          */
+        bankAccount.setName(name);
     }
 
     public static int totalAccounts = 0;
@@ -89,6 +118,7 @@ public class Bank {
         /*
          * Implement this function
          */
+       return totalAccounts;
     }
 
     /**
